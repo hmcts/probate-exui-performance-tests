@@ -1,0 +1,56 @@
+{
+  "data": {
+    "hearingDetails": [
+      {
+        "id": "${hearingDetails}",
+        "value": {
+          "type": "CASE_MANAGEMENT",
+          "venue": "99",
+          "startDate": "2020-07-17T09:00:00.000",
+          "endDate": "2020-07-17T13:00:00.000",
+          "hearingNeedsBooked": [
+            "INTERPRETER"
+          ],
+          "hearingNeedsDetails": "asasasasasasas",
+          "judgeAndLegalAdvisor": {
+            "useAllocatedJudge": "Yes",
+            "legalAdvisorName": "laf lal",
+            "allocatedJudgeLabel": null
+          }
+        }
+      }
+    ],
+    "allocatedJudgeLabel": "Case assigned to: Her Honour Judge judgelast"
+  },
+  "event": {
+    "id": "hearingBookingDetails",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token_sdo_hearingbooking}",
+  "ignore_warning": false,
+  "event_data": {
+    "hearingDetails": [
+      {
+        "id": "${hearingDetails}",
+        "value": {
+          "type": "CASE_MANAGEMENT",
+          "venue": "99",
+          "startDate": "2020-07-17T09:00:00.000",
+          "endDate": "2020-07-17T13:00:00.000",
+          "hearingNeedsBooked": [
+            "INTERPRETER"
+          ],
+          "hearingNeedsDetails": "asasasasasasas",
+          "judgeAndLegalAdvisor": {
+            "useAllocatedJudge": "Yes",
+            "legalAdvisorName": "laf lal",
+            "allocatedJudgeLabel": null
+          }
+        }
+      }
+    ],
+    "allocatedJudgeLabel": "Case assigned to: Her Honour Judge judgelast"
+  },
+  "case_reference": "${caseId}"
+}

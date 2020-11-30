@@ -1,0 +1,25 @@
+{
+  "data": {
+    "solsSolicitorFirmName": "testuserfirmperftest",
+    "solsSolicitorAddress": {
+      "AddressLine1": "20 Hibernia Gardens",
+      "AddressLine2": "",
+      "AddressLine3": "",
+      "PostTown": "Hounslow",
+      "County": "",
+      "PostCode": "TW3 3SD",
+      "Country": "United Kingdom"
+    },
+    "solsSolicitorAppReference": "${appRef}",
+    "solsSolicitorEmail": "${caseEmail}",
+    "solsSolicitorPhoneNumber": "07540612047"
+  },
+  "event": {
+    "id": "solicitorCreateApplication",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token_probate}",
+  "ignore_warning": false,
+  "draft_id": null
+}

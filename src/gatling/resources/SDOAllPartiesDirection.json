@@ -1,0 +1,260 @@
+{
+  "data": {
+    "allParties": [
+      {
+        "id": "${code145}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-07T12:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Request permission for expert evidence"
+        }
+      },
+      {
+        "id": "${code146}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-08T16:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Request help to take part in proceedings"
+        }
+      },
+      {
+        "id": "${code147}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-08T16:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Ask for disclosure"
+        }
+      },
+      {
+        "id": "${code148}",
+        "value": {
+          "directionNeeded": "Yes",
+          "directionText": "Parties and their legal representatives must attend the pre-hearing and hearing",
+          "dateToBeCompletedBy": "2020-07-10T00:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "No",
+          "directionRemovable": "Yes",
+          "directionType": "Attend the pre-hearing and hearing"
+        }
+      },
+      {
+        "id": "${code149}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-08T16:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Contact alternative carers"
+        }
+      }
+    ],
+    "allPartiesCustom": [],
+    "allPartiesHearingDate": "17 July 2020, 9:00am"
+  },
+  "event": {
+    "id": "draftSDO",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token_sdo_draft}",
+  "ignore_warning": false,
+  "event_data": {
+    "dateOfIssue": "2020-07-09",
+    "judgeAndLegalAdvisor": {
+      "useAllocatedJudge": "Yes",
+      "legalAdvisorName": "laf lal",
+      "allocatedJudgeLabel": "Case assigned to: Her Honour Judge judgelast"
+    },
+    "allParties": [
+      {
+        "id": "${code145}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-07T12:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Request permission for expert evidence"
+        }
+      },
+      {
+        "id": "${code146}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-08T16:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Request help to take part in proceedings"
+        }
+      },
+      {
+        "id": "${code147}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-08T16:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Ask for disclosure"
+        }
+      },
+      {
+        "id": "${code148}",
+        "value": {
+          "directionNeeded": "Yes",
+          "directionText": "Parties and their legal representatives must attend the pre-hearing and hearing",
+          "dateToBeCompletedBy": "2020-07-10T00:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "No",
+          "directionRemovable": "Yes",
+          "directionType": "Attend the pre-hearing and hearing"
+        }
+      },
+      {
+        "id": "${code149}",
+        "value": {
+          "directionNeeded": "Yes",
+          "dateToBeCompletedBy": "2020-07-08T16:00:00",
+          "assignee": "ALL_PARTIES",
+          "parentsAndRespondentsAssignee": null,
+          "otherPartiesAssignee": null,
+          "status": null,
+          "response": {
+            "assignee": null,
+            "responder": null,
+            "respondingOnBehalfOfRespondent": null,
+            "respondingOnBehalfOfOthers": null,
+            "respondingOnBehalfOfCafcass": null,
+            "complied": null
+          },
+          "responses": [],
+          "readOnly": "Yes",
+          "directionRemovable": "Yes",
+          "directionType": "Contact alternative carers"
+        }
+      }
+    ],
+    "allPartiesCustom": [],
+    "allPartiesHearingDate": "17 July 2020, 9:00am"
+  },
+  "case_reference": "${caseId}"
+}

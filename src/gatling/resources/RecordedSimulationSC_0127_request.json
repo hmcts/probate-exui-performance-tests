@@ -1,0 +1,35 @@
+{
+  "data": {
+    "PetitionerSolicitorName": "dfdfdfdf",
+    "PetitionerSolicitorFirm": "hjjhjhj",
+    "DerivedPetitionerSolicitorAddr": "14\nHibernia Gardens",
+    "D8SolicitorReference": "1212123564",
+    "PetitionerSolicitorPhone": "07975747275",
+    "PetitionerSolicitorEmail": "vijaykanth6@gmail.com",
+    "SolicitorAgreeToReceiveEmails": "Yes"
+  },
+  "event": {
+    "id": "solicitorCreate",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token}",
+  "ignore_warning": false,
+  "event_data": {
+    "OrganisationPolicyField": {
+      "Organisation": {
+        "OrganisationID": "${orgref}",
+        "OrganisationName": "${orgname}"
+      },
+      "OrgPolicyCaseAssignedRole": "[PETSOLICITOR]",
+      "OrgPolicyReference": null
+    },
+    "PetitionerSolicitorName": "dfdfdfdf",
+    "PetitionerSolicitorFirm": "hjjhjhj",
+    "DerivedPetitionerSolicitorAddr": "14\nHibernia Gardens",
+    "D8SolicitorReference": "1212123564",
+    "PetitionerSolicitorPhone": "07975747275",
+    "PetitionerSolicitorEmail": "vijaykanth6@gmail.com",
+    "SolicitorAgreeToReceiveEmails": "Yes"
+  }
+}

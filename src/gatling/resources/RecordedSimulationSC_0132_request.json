@@ -1,0 +1,48 @@
+{
+  "data": {
+    "D8PetitionerFirstName": "fgfgg",
+    "D8PetitionerLastName": "uyut",
+    "D8PetitionerNameDifferentToMarriageCert": "No",
+    "D8DivorceWho": "husband",
+    "D8InferredPetitionerGender": "female",
+    "D8MarriageIsSameSexCouple": "No",
+    "D8DerivedPetitionerHomeAddress": "14\nHibernia Gardens",
+    "D8PetitionerPhoneNumber": null,
+    "D8PetitionerEmail": "",
+    "D8PetitionerContactDetailsConfidential": "share"
+  },
+  "event": {
+    "id": "solicitorCreate",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token}",
+  "ignore_warning": false,
+  "event_data": {
+    "OrganisationPolicyField": {
+      "Organisation": {
+        "OrganisationID": "${orgref}",
+        "OrganisationName": "${orgname}"
+      },
+      "OrgPolicyCaseAssignedRole": "[PETSOLICITOR]",
+      "OrgPolicyReference": null
+    },
+    "PetitionerSolicitorName": "dfdfdfdf",
+    "PetitionerSolicitorFirm": "hjjhjhj",
+    "DerivedPetitionerSolicitorAddr": "14\nHibernia Gardens",
+    "D8SolicitorReference": "1212123564",
+    "PetitionerSolicitorPhone": "07975747275",
+    "PetitionerSolicitorEmail": "vijaykanth6@gmail.com",
+    "SolicitorAgreeToReceiveEmails": "Yes",
+    "D8PetitionerFirstName": "fgfgg",
+    "D8PetitionerLastName": "uyut",
+    "D8PetitionerNameDifferentToMarriageCert": "No",
+    "D8DivorceWho": "husband",
+    "D8InferredPetitionerGender": "female",
+    "D8MarriageIsSameSexCouple": "No",
+    "D8DerivedPetitionerHomeAddress": "14\nHibernia Gardens",
+    "D8PetitionerPhoneNumber": null,
+    "D8PetitionerEmail": "",
+    "D8PetitionerContactDetailsConfidential": "share"
+  }
+}

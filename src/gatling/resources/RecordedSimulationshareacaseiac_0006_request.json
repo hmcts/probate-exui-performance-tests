@@ -1,0 +1,29 @@
+{
+  "data": {
+    "orgListOfUsers": {
+      "value": {
+        "code": "${code}",
+        "label": "${label}"
+      },
+      "list_items": [
+        "${code1}",
+        "${code2}",
+        "${code3}",
+        "${code4}",
+        "${code5}",
+        "${code6}"
+      ]
+    }
+  },
+  "event": {
+    "id": "shareACase",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token_sharecase}",
+  "ignore_warning": false,
+  "event_data": {
+    "orgListOfUsers": "${code}"
+  },
+  "case_reference": "${caseId}"
+}

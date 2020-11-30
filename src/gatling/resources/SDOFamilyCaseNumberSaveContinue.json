@@ -1,0 +1,12 @@
+{
+  "data": {
+    "familyManCaseNumber": "${caseId}"
+  },
+  "event": {
+    "id": "addFamilyManCaseNumber",
+    "summary": "",
+    "description": ""
+  },
+  "event_token": "${event_token_sdo_casenumber}",
+  "ignore_warning": false
+}
