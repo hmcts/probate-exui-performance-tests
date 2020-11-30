@@ -75,176 +75,158 @@ object ExUI {
     "upgrade-insecure-requests" -> "1")
 
   val createSuperUser=
-  feed(Feeders.createDynamicDataFeeder).exec(http("XUI_CreateSuperUser")
-       .post(idamAPI+"/testing-support/accounts")
-                        // .header("Authorization", "Bearer ${accessToken}")
-                        // .header("ServiceAuthorization", "Bearer ${s2sToken}")
-                        .header("Content-Type", "application/json")
-                        .body(StringBody("{\"email\": \"${generatedEmail}\", \"forename\": \"Vijay\", \"password\": \"Pass19word\", \"surname\": \"Vykuntam\"}"))
-                        .check(status is 201))
-                   .pause(20)
-val createOrg=
-  exec(_.setAll(
-    ("SRAId", sRAId()),
-    ("CompanyNumber", companyNumber()),
-    ("CompanyURL", companyURL()),
-    ("PaymentAccount1",paymentAccount1()),
-    ("PaymentAccount2",paymentAccount2()),
-  ))
-      .exec(http("RD15_External_CreateOrganization")
-          .post(prdUrl+"/refdata/external/v1/organisations")
-          .header("ServiceAuthorization", "Bearer ${s2sToken}")
-          .body(StringBody("{\n   \"name\": \"${orgName}\",\n   \"sraId\": \"TRA${SRAId}\",\n   \"sraRegulated\": true,\n   \"companyNumber\": \"${CompanyNumber}\",\n" +
-            "\"companyUrl\": \"www.tr${CompanyURL}.com\",\n   \"superUser\": {\n       \"firstName\": \"Vijay\",\n       \"lastName\": \"Vykuntam\",\n" +
-            "\"email\": \"${generatedEmail}\"\n,\n        \"jurisdictions\": [\n    {\n      \"id\": \"DIVORCE\"\n    },\n    {\n      \"id\": \"SSCS\"\n    },\n    {\n      \"id\": \"PROBATE\"\n    },\n    {\n      \"id\": \"PUBLICLAW\"\n    },\n    {\n      \"id\": \"BULK SCANNING\"\n    },\n    {\n      \"id\": \"IA\"\n    },\n    {\n      \"id\": \"CMC\"\n    },\n    {\n      \"id\": \"EMPLOYMENT\"\n    },\n    {\n      \"id\": \"Family public law and adoption\"\n    },\n    {\n      \"id\": \"Civil enforcement and possession\"\n    }\n  ]   },\n   \"paymentAccount\": [\n\n          \"PBA${PaymentAccount1}\",\"PBA${PaymentAccount2}\"\n\n   ],\n" +
-            "\"contactInformation\": [\n       {\n           \"addressLine1\": \"4\",\n           \"addressLine2\": \"Hibernia Gardens\",\n           \"addressLine3\": \"Maharaj road\",\n" +
-            "\"townCity\": \"Hounslow\",\n           \"county\": \"middlesex\",\n           \"country\": \"UK\",\n           \"postCode\": \"TW3 3SD\",\n           \"dxAddress\": [\n" +
-            "{\n                   \"dxNumber\": \"DX 1121111990\",\n                   \"dxExchange\": \"112111192099908492\"\n               }\n           ]\n       }\n   ]\n}"))
-          .header("Content-Type", "application/json")
-          .check(jsonPath("$.organisationIdentifier").saveAs("orgRefCode"))
-          .check(status in (200,201)))
-    .pause(15)
+    feed(Feeders.createDynamicDataFeeder).exec(http("XUI_CreateSuperUser")
+      .post(idamAPI+"/testing-support/accounts")
+      // .header("Authorization", "Bearer ${accessToken}")
+      // .header("ServiceAuthorization", "Bearer ${s2sToken}")
+      .header("Content-Type", "application/json")
+      .body(StringBody("{\"email\": \"${generatedEmail}\", \"forename\": \"Vijay\", \"password\": \"Pass19word\", \"surname\": \"Vykuntam\"}"))
+      .check(status is 201))
+      .pause(20)
 
+  /*
+  val createOrg=
+    exec(_.setAll(
+      ("SRAId", sRAId()),
+      ("CompanyNumber", companyNumber()),
+      ("CompanyURL", companyURL()),
+      ("PaymentAccount1",paymentAccount1()),
+      ("PaymentAccount2",paymentAccount2()),
+    ))
+        .exec(http("RD15_External_CreateOrganization")
+            .post(prdUrl+"/refdata/external/v1/organisations")
+            .header("ServiceAuthorization", "Bearer ${s2sToken}")
+            .body(StringBody("{\n   \"name\": \"${orgName}\",\n   \"sraId\": \"TRA${SRAId}\",\n   \"sraRegulated\": true,\n   \"companyNumber\": \"${CompanyNumber}\",\n" +
+              "\"companyUrl\": \"www.tr${CompanyURL}.com\",\n   \"superUser\": {\n       \"firstName\": \"Vijay\",\n       \"lastName\": \"Vykuntam\",\n" +
+              "\"email\": \"${generatedEmail}\"\n,\n        \"jurisdictions\": [\n    {\n      \"id\": \"DIVORCE\"\n    },\n    {\n      \"id\": \"SSCS\"\n    },\n    {\n      \"id\": \"PROBATE\"\n    },\n    {\n      \"id\": \"PUBLICLAW\"\n    },\n    {\n      \"id\": \"BULK SCANNING\"\n    },\n    {\n      \"id\": \"IA\"\n    },\n    {\n      \"id\": \"CMC\"\n    },\n    {\n      \"id\": \"EMPLOYMENT\"\n    },\n    {\n      \"id\": \"Family public law and adoption\"\n    },\n    {\n      \"id\": \"Civil enforcement and possession\"\n    }\n  ]   },\n   \"paymentAccount\": [\n\n          \"PBA${PaymentAccount1}\",\"PBA${PaymentAccount2}\"\n\n   ],\n" +
+              "\"contactInformation\": [\n       {\n           \"addressLine1\": \"4\",\n           \"addressLine2\": \"Hibernia Gardens\",\n           \"addressLine3\": \"Maharaj road\",\n" +
+              "\"townCity\": \"Hounslow\",\n           \"county\": \"middlesex\",\n           \"country\": \"UK\",\n           \"postCode\": \"TW3 3SD\",\n           \"dxAddress\": [\n" +
+              "{\n                   \"dxNumber\": \"DX 1121111990\",\n                   \"dxExchange\": \"112111192099908492\"\n               }\n           ]\n       }\n   ]\n}"))
+            .header("Content-Type", "application/json")
+            .check(jsonPath("$.organisationIdentifier").saveAs("orgRefCode"))
+            .check(status in (200,201)))
+      .pause(15)
+  */
 
-
- /* val createOrg1=
+  val createOrg=
     exec(http("EXUI_RO_Homepage")
-         .get("/register-org/register")
-         .check(status.is(200)))
-    .pause(Environment.minThinkTime,Environment.maxThinkTime)
-    .feed(Feeders.createDynamicDataFeeder).exec(http("EXUI_RO_Create")
-      .post("/external/register-org/register")
-      .body(ElFileBody("CR.json")).asJson
-      .check(status.is(200)).check(jsonPath("$.organisationIdentifier").optional.saveAs("orgRefCode")))
-    .pause(10)*/
+      .get("/register-org/register")
+      .check(status.is(200)))
+      .pause(Environment.minThinkTime,Environment.maxThinkTime)
+      .exec(http("EXUI_RO_Create")
+        .post("/external/register-org/register")
+        .body(ElFileBody("CR.json")).asJson
+        .check(status.is(200)).check(jsonPath("$.organisationIdentifier").optional.saveAs("orgRefCode")))
+      .pause(10)
 
   val approveOrgHomePage=
     exec(http("EXUI_AO_005_Homepage")
-         .get(url_approve + "/")
-         .check(status.is(200))
+      .get(url_approve + "/")
+      .check(status.is(200))
     )
-
-    .exec(http("request_6")
-          .get(url_approve+"/api/environment/config")
-          .check(status.is(200))
-    )
-
-      .exec(http("request_12")
-            .get(url_approve+"/auth/isAuthenticated")
-            .check(status.is(200))
+      .exec(http("request_6")
+        .get(url_approve+"/api/environment/config")
+        .check(status.is(200))
       )
-
-    .exec(http("request_8")
-          .get(url_approve+"/api/user/details")
-          .check(status.is(200))
-      .check(regex("oauth2/callback&state=(.*)&nonce").saveAs("state"))
-      .check(regex("&nonce=(.*)&response_type").saveAs("nonce"))
-      .check(css("input[name='_csrf']", "value").saveAs("csrfToken"))
-    )
-
-    .pause(Environment.minThinkTime)
+      .exec(http("request_12")
+        .get(url_approve+"/auth/isAuthenticated")
+        .check(status.is(200))
+      )
+      .exec(http("request_userdetails")
+        .get(url_approve+"/api/user/details")
+        .check(status.is(200))
+        .check(regex("oauth2/callback&state=(.*)&nonce").saveAs("state"))
+        .check(regex("&nonce=(.*)&response_type").saveAs("nonce"))
+        .check(css("input[name='_csrf']", "value").saveAs("csrfToken"))
+      )
+      .pause(Environment.minThinkTime)
 
   val approveOrganisationlogin =
-
     exec(http("EXUI_AO_005_Login")
-         .post(IdamUrl + "/login?client_id=xuiaowebapp&redirect_uri="+url_approve+"/oauth2/callback&state=${state}&nonce=${nonce}&response_type=code&scope=profile%20openid%20roles%20manage-user%20create-user&prompt=")
-         .headers(headers_login)
-         .formParam("username", approveUser)
-         .formParam("password", approveUserPassword)
-         .formParam("save", "Sign in")
-         .formParam("selfRegistrationEnabled", "false")
-         .formParam("_csrf", "${csrfToken}")
-         .check(status.is(200))
+      .post(IdamUrl + "/login?client_id=xuiaowebapp&redirect_uri="+url_approve+"/oauth2/callback&state=${state}&nonce=${nonce}&response_type=code&scope=profile%20openid%20roles%20manage-user%20create-user&prompt=")
+      .headers(headers_login)
+      .formParam("username", approveUser)
+      .formParam("password", approveUserPassword)
+      .formParam("save", "Sign in")
+      .formParam("selfRegistrationEnabled", "false")
+      .formParam("_csrf", "${csrfToken}")
+      .check(status.is(200))
     )
-
-    .pause(Environment.minThinkTime)
-
+      .pause(Environment.minThinkTime)
       .exec(http("request_5")
-            .get( "/api/environment/config")
-        .check(status.is(200))
-           )
-
-
-      .exec(http("request_6")
-            .get( "/api/user/details")
+        .get( "/api/environment/config")
         .check(status.is(200))
       )
-
+      .exec(http("ao_userdetails")
+        .get( "/api/user/details")
+        .check(status.is(200))
+      )
       .exec(http("request_7")
-            .get("/auth/isAuthenticated")
+        .get("/auth/isAuthenticated")
         .check(status.is(200))
       )
-
       .exec(http("request_9")
-            .get( "/api/organisations?status=ACTIVE")
+        .get( "/api/organisations?status=ACTIVE")
         .check(status.is(200))
       )
-
-    .exec(http("EXUI_AO_010_Login")
-          .get(url_approve + "/api/organisations?status=PENDING")
-          .check(status.is(200))
-    )
-    .exec(getCookieValue(CookieKey("XSRF-TOKEN").withDomain("administer-orgs.perftest.platform.hmcts.net").saveAs("XSRFToken"))
-    )
-
-    .pause(30)
-
-
-
+      .exec(http("EXUI_AO_010_Login")
+        .get(url_approve + "/api/organisations?status=PENDING")
+        .check(status.is(200))
+      )
+      .exec(getCookieValue(CookieKey("XSRF-TOKEN").withDomain("administer-orgs.aat.platform.hmcts.net").saveAs("XSRFToken"))
+      )
+      .pause(30)
 
   val approveOrganisationApprove =
-
-  exec(http("request_3")
-        .get("/auth/isAuthenticated")
-    .check(status.in(200,304)))
-      .pause(10)
-
-    .exec(http("request_4")
-          .get("/auth/isAuthenticated")
+    exec(http("request_3")
+      .get("/auth/isAuthenticated")
       .check(status.in(200,304)))
-          .pause(10)
-
+      .pause(10)
+      .exec(http("request_4")
+        .get("/auth/isAuthenticated")
+        .check(status.in(200,304)))
+      .pause(10)
       .exec(http("EXUI_AO_Approve")
-      .put(url_approve+"/api/organisations/${orgRefCode}")
-          .headers(headers_approve)
+        .put(url_approve+"/api/organisations/${orgRefCode}")
+        .headers(headers_approve)
         .header("X-XSRF-TOKEN", "${XSRFToken}")
-      .body(ElFileBody("AO.json")).asJson
-      .check(status.is(200))
-    .check(status.saveAs("aostatusvalue")))
-    .pause(10)
-       /* .exec {
-      session =>
-        val client = new NotificationClient(notificationClient)
-        val pattern = new Regex("token.+")
-        val str = findEmail(client,session("generatedEmail").as[String])
-        session.set("activationLink", (pattern findFirstMatchIn str.get).mkString.trim.replace(")", ""))
-    }
-    .pause(40)
-      .exec(http("SelfReg01_TX03_Password")
-        .get(IdamUrl+"/users/register?&${activationLink}")
+        .body(ElFileBody("AO.json")).asJson
         .check(status.is(200))
-        .check(css("input[name='token']", "value").saveAs("token"))
-        .check(css("input[name='code']", "value").saveAs("code"))
-        .check(css("input[name='_csrf']", "value").saveAs("_csrf")))
-      .pause(40)
-      .exec(http("SelfReg01_TX04_Activate").post(IdamUrl+"/users/activate")
-        .formParam("_csrf", "${_csrf}")
-        .formParam("code", "${code}")
-        .formParam("token", "${token}")
-        .formParam("password1", "Pass19word")
-        .formParam("password2", "Pass19word")
-        .check(status.is(200))
-    .check(status.saveAs("aostatusvalue")))
-      .pause(20)*/
-    .doIf(session=>session("aostatusvalue").as[String].contains("200")) {
-      exec { session =>
-        val fw = new BufferedWriter(new FileWriter("OrgDetails.csv", true))
-        try {
-          fw.write(session("orgName").as[String] + "," + session("orgRefCode").as[String] + "," + session("generatedEmail").as[String] + "\r\n")
-        } finally fw.close()
-        session
+        .check(status.saveAs("aostatusvalue")))
+      .pause(10)
+      /* .exec {
+     session =>
+       val client = new NotificationClient(notificationClient)
+       val pattern = new Regex("token.+")
+       val str = findEmail(client,session("generatedEmail").as[String])
+       session.set("activationLink", (pattern findFirstMatchIn str.get).mkString.trim.replace(")", ""))
+   }
+   .pause(40)
+     .exec(http("SelfReg01_TX03_Password")
+       .get(IdamUrl+"/users/register?&${activationLink}")
+       .check(status.is(200))
+       .check(css("input[name='token']", "value").saveAs("token"))
+       .check(css("input[name='code']", "value").saveAs("code"))
+       .check(css("input[name='_csrf']", "value").saveAs("_csrf")))
+     .pause(40)
+     .exec(http("SelfReg01_TX04_Activate").post(IdamUrl+"/users/activate")
+       .formParam("_csrf", "${_csrf}")
+       .formParam("code", "${code}")
+       .formParam("token", "${token}")
+       .formParam("password1", "Pass19word")
+       .formParam("password2", "Pass19word")
+       .check(status.is(200))
+   .check(status.saveAs("aostatusvalue")))
+     .pause(20)*/
+      .doIf(session=>session("aostatusvalue").as[String].contains("200")) {
+        exec { session =>
+          val fw = new BufferedWriter(new FileWriter("OrgDetails.csv", true))
+          try {
+            fw.write(session("orgName").as[String] + "," + session("orgRefCode").as[String] + "," + session("generatedEmail").as[String] + "\r\n")
+          } finally fw.close()
+          session
+        }
       }
-    }
 
   val approveOrganisationLogout =
     exec(http("EXUI_AO_005_Logout")

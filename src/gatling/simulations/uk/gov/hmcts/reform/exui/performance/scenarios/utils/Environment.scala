@@ -22,10 +22,10 @@ val baseDomainOrg="manage-org.aat.platform.hmcts.net"
   val adminPasswordAO = "Monday01"
   val notificationClient="sidam_aat-b7ab8862-25b4-41c9-8311-cb78815f7d2d-ebb113ff-da17-4646-a39e-f93783a993f4"
 
- val minThinkTime = 100
-  //10
-  val maxThinkTime = 110
-  //30
+ val minThinkTime = //100
+  10
+  val maxThinkTime = //110
+  10
   val minThinkTimeFPLC = 60//75
   //10
   val maxThinkTimeFPLC = 65//80
@@ -44,15 +44,17 @@ val baseDomainOrg="manage-org.aat.platform.hmcts.net"
   val minThinkTimeIACV = 470
   //10
   val maxThinkTimeIACV = 490
-  val minThinkTimePROB = 340//300
-  val maxThinkTimePROB = 360//310
-
+  val minThinkTimePROB = //340//300
+  10
+  val maxThinkTimePROB = //360//310
+  10
   val minThinkTimeDIV = 100//140
   val maxThinkTimeDIV = 110//160
 
-  val minThinkTimeCW = 40//50
-  val maxThinkTimeCW = 42//50
-
+  val minThinkTimeCW = //40//50
+  10
+  val maxThinkTimeCW = //42//50
+  10
   val minThinkTimeFR =90//  100
   val maxThinkTimeFR =95//48//100
 
