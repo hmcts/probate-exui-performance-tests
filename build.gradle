@@ -1,10 +1,10 @@
 plugins {
-    id 'org.owasp.dependencycheck' version '5.1.0'
+    id 'org.owasp.dependencycheck' version '6.0.2'
     id 'scala'
     id 'com.github.lkishalmi.gatling' version '3.0.2'
-    id 'java-gradle-plugin'
+//    id 'java-gradle-plugin'
     id 'groovy'
-    id 'com.gradle.plugin-publish' version '0.9.8'
+    id 'com.gradle.plugin-publish' version '0.12.0'
     id 'maven-publish'
 }
 
@@ -17,11 +17,33 @@ tasks.withType(JavaExec) {
     jvmArgs = ['-Xms512m', '-Xmx1024m', '-XX:+UseConcMarkSweepGC']
 }
 
+sourceCompatibility = "11"
+targetCompatibility = "11"
+
+/*dependencyCheck {
+    suppressionFile = 'config/owasp/suppressions.xml'
+}*/
+
+repositories {
+    jcenter()
+}
+
+//jar {
+//    manifest {
+//        attributes 'Implementation-Title': 'EXUI Performance Tests',
+//                'Implementation-Version': version
+//    }
+//}
+
 jar {
     manifest {
-        attributes 'Implementation-Title': 'EXUI Performance Tests',
-                'Implementation-Version': version
+        attributes 'Main-Class': 'io.gatling.app.Gatling'
     }
+    from {
+        configurations.testCompile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    from sourceSets.test.output
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
 }
 
 /*dependencyCheck {
@@ -36,14 +58,12 @@ repositories {
 }
 
 dependencies {
-    compile 'org.scala-lang:scala-library:2.12.8'
+    //compile 'org.scala-lang:scala-library:2.12.8'
     gatlingCompile 'com.warrenstrange:googleauth:1.1.5'
-    compile group: 'io.gatling', name: 'gatling-app', version: '3.1.1'
-    compile group: 'io.gatling', name: 'gatling-recorder', version: '3.1.1'
-    compile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.1.1'
+    //compile group: 'io.gatling', name: 'gatling-app', version: '3.1.1'
+    //compile group: 'io.gatling', name: 'gatling-recorder', version: '3.1.1'
+    //compile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.1.1'
     gatlingCompile group: 'uk.gov.service.notify', name: 'notifications-java-client', version: '3.14.1-RELEASE'
-
-
 }
 
 gatling {
@@ -52,6 +72,7 @@ gatling {
     simulations = [ 'uk.gov.hmcts.reform.exui.performance.simulations.ExUI'
     ]
 }
+
 
 test {
     testLogging {

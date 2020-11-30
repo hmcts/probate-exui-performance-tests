@@ -62,7 +62,7 @@ class ExUI extends Simulation {
 			.exec(EXUIMCLogin.manageCasesHomePage)
 			.exec(EXUIMCLogin.manageCaseslogin)
 		//	.exec(EXUIMCLogin.termsnconditions)
-		.repeat(1) {
+		.repeat(2) {
 			exec(EXUIProbateMC.casecreation)
 			//.exec(EXUIProbateMC.casedetails)
 			}
@@ -82,8 +82,8 @@ class ExUI extends Simulation {
   }
 
 	setUp(
-		EXUIMCaseProbateScn.inject(rampUsers(1) during (10))
-		//EXUIMCaseCaseworkerScn.inject(rampUsers(1) during (10))
+		EXUIMCaseProbateScn.inject(rampUsers(1) during (10)),
+		EXUIMCaseCaseworkerScn.inject(rampUsers(1) during (10))
 	).protocols(IAChttpProtocol)
 
 	/*setUp(

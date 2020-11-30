@@ -20,14 +20,13 @@ object EXUICaseWorker {
         .headers(CaseworkerHeader.headers_2)
         .header("X-XSRF-TOKEN", "${xsrfToken}")
         .body(StringBody("{\n  \"size\": 25\n}"))
-        .check(jsonPath("$..case_id").findAll.optional.saveAs("caseNumbers")))
+        .check(jsonPath("$..case_id").find(0).optional.saveAs("caseNumber")))
         
       .pause(MinThinkTime, MaxThinkTime)
 
   val ViewCase = 
   //Loop through each of the found cases and view
-  doIf(session => session.contains("caseNumbers")) {
-    foreach("${caseNumbers}", "caseNumber") {
+  doIf(session => session.contains("caseNumber")) {
       exec(http("XUI${service}_040_005_ViewCase")
         .get("/data/internal/cases/${caseNumber}")
         .headers(CaseworkerHeader.headers_5)
@@ -42,7 +41,7 @@ object EXUICaseWorker {
       .exec(http("XUI${service}_040_015_GetPaymentGroups")
         .get("/payments/cases/${caseNumber}/paymentgroups")
         .headers(CaseworkerHeader.headers_search)
-        .check(status.in(200,404)))
+        .check(status.in(200,404,403)))
 
       .pause(MinThinkTime, MaxThinkTime)
 
@@ -98,7 +97,6 @@ object EXUICaseWorker {
 
       .pause(MinThinkTime, MaxThinkTime)
     }
-  }
 }
 
 
