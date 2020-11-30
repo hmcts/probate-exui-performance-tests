@@ -1,1 +1,1 @@
-Gatling nightly performance tests for Probate
+Gatling nightly performance tests for Probate (EXUI).

@@ -159,7 +159,7 @@ object Feeders {
     "PROB"
   }),
     "SignoutNumber" -> ({
-      "120"
+      "100"
     })
   ));
 
