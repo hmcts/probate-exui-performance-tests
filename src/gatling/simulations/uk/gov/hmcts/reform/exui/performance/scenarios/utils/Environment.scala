@@ -5,22 +5,22 @@ import io.gatling.http.Predef._
 object Environment {
 
  val environment: String = System.getProperty("env")
- //if (environment == "perftest") {
+ //if (environment == "aat") {
  val S2S_ServiceName = "rd_professional_api"
-  val S2SUrl = "http://rpe-service-auth-provider-perftest.service.core-compute-perftest.internal/testing-support"
-  val PRDUrl = "http://rd-professional-api-perftest.service.core-compute-perftest.internal"
-  val url_approve = "https://administer-orgs.perftest.platform.hmcts.net"
-  val manageOrdURL = "https://manage-org.perftest.platform.hmcts.net"
-  val idamURL = "https://idam-web-public.perftest.platform.hmcts.net"
-  val baseURL = "https://manage-case.perftest.platform.hmcts.net"
-  val ccdEnvurl = "https://ccd-case-management-web-perftest.service.core-compute-perftest.internal"
-  val baseFPLAURL = "https://manage-case.perftest.platform.hmcts.net"
- val baseDomain="manage-case.perftest.platform.hmcts.net"
-val baseDomainOrg="manage-org.perftest.platform.hmcts.net"
-  val idamAPI="https://idam-api.perftest.platform.hmcts.net"
+  val S2SUrl = "http://rpe-service-auth-provider-aat.service.core-compute-aat.internal/testing-support"
+  val PRDUrl = "http://rd-professional-api-aat.service.core-compute-aat.internal"
+  val url_approve = "https://administer-orgs.aat.platform.hmcts.net"
+  val manageOrdURL = "https://manage-org.aat.platform.hmcts.net"
+  val idamURL = "https://idam-web-public.aat.platform.hmcts.net"
+  val baseURL = "https://manage-case.aat.platform.hmcts.net"
+  val ccdEnvurl = "https://ccd-case-management-web-aat.service.core-compute-aat.internal"
+  val baseFPLAURL = "https://manage-case.aat.platform.hmcts.net"
+ val baseDomain="manage-case.aat.platform.hmcts.net"
+val baseDomainOrg="manage-org.aat.platform.hmcts.net"
+  val idamAPI="https://idam-api.aat.platform.hmcts.net"
   val adminUserAO = "vmuniganti@mailnesia.com"
   val adminPasswordAO = "Monday01"
-  val notificationClient="sidam_perftest-b7ab8862-25b4-41c9-8311-cb78815f7d2d-ebb113ff-da17-4646-a39e-f93783a993f4"
+  val notificationClient="sidam_aat-b7ab8862-25b4-41c9-8311-cb78815f7d2d-ebb113ff-da17-4646-a39e-f93783a993f4"
 
  val minThinkTime = 100
   //10
