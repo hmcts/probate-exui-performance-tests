@@ -24,6 +24,58 @@ object EXUICaseWorker {
         
       .pause(MinThinkTime, MaxThinkTime)
 
+  val ApplySort=
+    exec(http("XUI${service}_040_005_ApplySortCaseRef")
+         .post("/data/internal/searchCases?ctid=${caseType}&use_case=WORKBASKET&view=WORKBASKET&page=1")
+         .headers(CaseworkerHeader.headers_sort)
+         .header("X-XSRF-TOKEN", "${xsrfToken}")
+         .body(StringBody("{\n  \"sort\": {\n    \"column\": \"[CASE_REFERENCE]\",\n    \"order\": 1,\n    \"type\": \"Number\"\n  },\n  \"size\": 25\n}"))
+         .check(status.is(200)))
+    .pause(10)
+    .exec(http("XUI${service}_040_010_ApplySortFirstName")
+          .post("/data/internal/searchCases?ctid=${caseType}&use_case=WORKBASKET&view=WORKBASKET&page=1")
+          .headers(CaseworkerHeader.headers_sort)
+          .header("X-XSRF-TOKEN", "${xsrfToken}")
+          .body(StringBody("{\n  \"sort\": {\n    \"column\": \"deceasedForenames\",\n    \"order\": 1,\n    \"type\": \"Text\"\n  },\n  \"size\": 25\n}"))
+          .check(status.is(200)))
+    .pause(10)
+
+  val ClickFindCase=
+    exec(http("XUI${service}_050_005_FindCase")
+         .get("/aggregated/caseworkers/:uid/jurisdictions?access=read")
+         .headers(CaseworkerHeader.headers_read)
+         .header("X-XSRF-TOKEN", "${xsrfToken}")
+    )
+
+    .exec(http("XUI${service}_050_010_FindCaseSearch")
+          .get("/data/internal/case-types/Asylum/search-inputs")
+          .headers(CaseworkerHeader.headers_read)
+          .header("X-XSRF-TOKEN", "${xsrfToken}")
+          .check(status.in(200,404))
+    )
+
+    .exec(http("XUI${service}_050_015_FindCaseSearchMeta")
+          .get("/aggregated/caseworkers/:uid/jurisdictions/IA/case-types/Asylum/cases?view=SEARCH&page=1")
+          .headers(CaseworkerHeader.headers_read)
+          .header("X-XSRF-TOKEN", "${xsrfToken}")
+          .check(status.in(200,404)))
+    .pause(10)
+    //submit find a case
+
+    .exec(http("XUI${service}_060_FindSearchResults")
+          .post("/data/internal/searchCases?ctid=${caseType}&use_case=WORKBASKET&view=WORKBASKET&page=1")
+          .headers(CaseworkerHeader.headers_2)
+          .header("X-XSRF-TOKEN", "${xsrfToken}")
+          .body(StringBody("{\n  \"size\": 25\n}"))
+          .check(jsonPath("$..case_id").find(0).optional.saveAs("caseNumber"))
+          .check(status.in(200,404)))
+    .pause(10)
+
+    .exec( session => {
+      println("the case number is  "+session("caseNumber").as[String])
+      session
+    })
+
   val ViewCase = 
   //Loop through each of the found cases and view
   doIf(session => session.contains("caseNumber")) {
@@ -45,6 +97,17 @@ object EXUICaseWorker {
 
       .pause(MinThinkTime, MaxThinkTime)
 
+      //following is view tabs
+
+      .exec(http("XUI${service}_080_005_DetailsTabAppeal")
+            .get("/api/healthCheck?path=%2Fcases%2Fcase-details%2F${caseNumber}%23applicantTab")
+            .headers(CaseworkerHeader.headers_4)
+            .check(status.in(200,404)))
+
+      .exec(http("XUI${service}_080_010_aosDetails")
+            .get("/api/healthCheck?path=%2Fcases%2Fcase-details%2F${caseNumber}%23eventHistoryTab")
+            .headers(CaseworkerHeader.headers_4)
+            .check(status.in(200,404)))
 
       //Only do these steps if document_ID is found
       .doIf(session => session.contains("Document_ID")) {

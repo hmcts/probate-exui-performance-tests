@@ -76,6 +76,8 @@ class ExUI extends Simulation {
 			.exec(EXUIMCLogin.caseworkerLogin)
 		.repeat(1) {
 			exec(EXUICaseWorker.ApplyFilters)
+				.exec(EXUICaseWorker.ApplySort)
+				.exec(EXUICaseWorker.ClickFindCase)
 			.exec(EXUICaseWorker.ViewCase)
 			}
 		.exec(EXUIMCLogin.manageCase_Logout)
