@@ -32,6 +32,7 @@ class ExUI extends Simulation {
 	setUp(
 		EXUIMCaseProbateScn.inject(rampUsers(10) during (180))
 	).protocols(httpProtocol)
-	 .assertions(global.successfulRequests.percent.gte(95))
+	 .assertions(global.successfulRequests.percent.gte(95),
+		forAll.successfulRequests.percent.gte(80))
 
 }
