@@ -1,1 +1,0 @@
-{"organisationIdentifier":"${orgRefCode}","contactInformation":[{"addressLine1":"4","addressLine2":"Hibernia Gardens","townCity":"Hounslow","county":"middlesex","dxAddress":[]}],"superUser":{"userIdentifier":"vija bhas","firstName":"vija bhas","lastName":"vija bhas","email":"${generatedEmail}"},"status":"ACTIVE","name":"${orgName}","paymentAccount":[]}

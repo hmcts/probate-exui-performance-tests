@@ -2,38 +2,25 @@ plugins {
     id 'org.owasp.dependencycheck' version '6.0.2'
     id 'scala'
     id 'com.github.lkishalmi.gatling' version '3.0.2'
-//    id 'java-gradle-plugin'
     id 'groovy'
     id 'com.gradle.plugin-publish' version '0.12.0'
     id 'maven-publish'
 }
 
-//apply plugin: 'java'
 apply plugin: 'scala'
 group 'uk.gov.hmcts.reform'
 version = '1.0'
 
 tasks.withType(JavaExec) {
-    jvmArgs = ['-Xms512m', '-Xmx1024m', '-XX:+UseConcMarkSweepGC']
+    jvmArgs = ['-Xms512m', '-Xmx1024m']
 }
 
 sourceCompatibility = "11"
 targetCompatibility = "11"
 
-/*dependencyCheck {
-    suppressionFile = 'config/owasp/suppressions.xml'
-}*/
-
 repositories {
     jcenter()
 }
-
-//jar {
-//    manifest {
-//        attributes 'Implementation-Title': 'EXUI Performance Tests',
-//                'Implementation-Version': version
-//    }
-//}
 
 jar {
     manifest {
@@ -46,12 +33,7 @@ jar {
     exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
 }
 
-/*dependencyCheck {
-    // Specifies if the build should be failed if a CVSS score above a specified level is identified.
-    // range of 0-10 fails the build, anything greater and it doesn't fail the build
-    failBuildOnCVSS = System.getProperty('dependencyCheck.failBuild') == 'true' ? 0 : 11
-    suppressionFile = 'dependency-check-suppressions.xml'
-}*/
+
 
 repositories {
     jcenter()
@@ -63,12 +45,11 @@ dependencies {
     //compile group: 'io.gatling', name: 'gatling-app', version: '3.1.1'
     //compile group: 'io.gatling', name: 'gatling-recorder', version: '3.1.1'
     //compile group: 'io.gatling.highcharts', name: 'gatling-charts-highcharts', version: '3.1.1'
-    gatlingCompile group: 'uk.gov.service.notify', name: 'notifications-java-client', version: '3.14.1-RELEASE'
 }
 
 gatling {
-    toolVersion '3.1.1'
-    scalaVersion '2.12.8'
+    toolVersion '3.3.1'
+    scalaVersion '2.12.12'
     simulations = [ 'uk.gov.hmcts.reform.exui.performance.simulations.ExUI'
     ]
 }
