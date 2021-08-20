@@ -620,8 +620,8 @@ object EXUIProbateMC {
             .transferEncoding("binary"))
           .asMultipartForm
           .formParam("classification", "PUBLIC")
-          .formParam("caseTypeId", "CARE_SUPERVISION_EPO")
-          .formParam("jurisdictionId", "PUBLICLAW")
+          .formParam("caseTypeId", "GrantOfRepresentation")
+          .formParam("jurisdictionId", "PROBATE")
           .check(substring("originalDocumentName"))
           .check(jsonPath("$.documents[0].hashToken").saveAs("documentHash"))
           .check(jsonPath("$.documents[0]._links.self.href").saveAs("SOTDocumentURL")))
