@@ -103,7 +103,7 @@ object EXUIMCLogin {
         .exec(http("XUI_Probate_020_035_GetWorkBasketInputs")
           .get("/data/internal/case-types/FinancialRemedyMVP2/work-basket-inputs")
           .headers(LoginHeader.headers_17)
-          .check(status.in(200, 304, 302)))
+          .check(status.in(200, 304, 302, 404)))
 
         .exec(http("XUI_Probate_020_040_HomepageIsAuthenticated")
           .get("/auth/isAuthenticated")
