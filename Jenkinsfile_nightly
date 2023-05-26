@@ -2,7 +2,7 @@
 
 properties([
       //Uncomment below line to schedule the nightly run
-        //pipelineTriggers([H7 07 * * 1-5')])
+        //pipelineTriggers([cron('H 08 * * 1-5')]),
 ])
 
 
